@@ -1,0 +1,61 @@
+{
+  "name": "pos365",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "npx concurrently \"npm run backend\" \"npm run frontend\" \"npx wait-on http://localhost:5173 && npx cross-env NODE_ENV=development electron .\"",
+    "backend": "node Backend/server.js",
+    "frontend": "npm --prefix Frontend run dev",
+    "build:frontend": "npm --prefix Frontend run build",
+    "build": "npm run build:frontend && electron-builder",
+    "start": "electron ."
+  },
+  "build": {
+    "appId": "pos365.com",
+    "productName": "POS365",
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true
+    },
+    "directories": {
+      "output": "dist-electron"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "!Frontend/**/*",
+      "!Backend/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "Frontend/dist",
+        "to": "Frontend/dist"
+      },
+      {
+        "from": "Backend/node_modules",
+        "to": "Backend/node_modules"
+      },
+      {
+        "from": "Backend",
+        "to": "Backend",
+        "filter": [
+          "**/*",
+          "!node_modules/**/*"
+        ]
+      }
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^42.2.0",
+    "electron-builder": "^26.8.1",
+    "wait-on": "^9.0.10"
+  }
+}

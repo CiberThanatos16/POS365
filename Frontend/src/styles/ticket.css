@@ -1,0 +1,23 @@
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    #ticket,
+    #ticket * {
+        visibility: visible;
+    }
+
+    #ticket {
+        left: 0;
+        top: 0;
+        width: 80mm;
+    }
+
+    #ticket {
+        font-family: monospace;
+        font-size: 12px;
+    }
+
+}
