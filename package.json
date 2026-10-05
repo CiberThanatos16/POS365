@@ -1,5 +1,5 @@
 {
-  "name": "pos365",
+  "name": "pos35X",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "start": "electron ."
   },
   "build": {
-    "appId": "pos365.com",
-    "productName": "POS365",
+    "appId": "pos35X.com",
+    "productName": "POS35X",
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,

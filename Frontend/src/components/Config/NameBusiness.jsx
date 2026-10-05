@@ -54,7 +54,7 @@ export const NameBusiness = () => {
                 </button>
             </form>
             <p>El nombre de tu negocio se reflejara en los tickets</p>
-            <p className="mb-5">de lo contrario aparecerá como POS365</p>
+            <p className="mb-5">de lo contrario aparecerá como POS35X</p>
             <p>El nombre debe ser el nombre de tu negocio :D</p>
         </section>
     )

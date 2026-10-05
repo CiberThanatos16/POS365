@@ -54,7 +54,7 @@ export const Dashboard = () => {
                     <nav className="flex flex-col gap-2 px-3 text-gray-200 h-full">
                         {/* LOGO */}
                         <div className="flex justify-center mb-10">
-                            <img src="images/white_pos365.png" alt="POS365" className="w-28" />
+                            <img src="images/white_pos35X.png" alt="POS365" className="w-28" />
                         </div>
 
                         {navLinks.map((link) => (

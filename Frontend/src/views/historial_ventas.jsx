@@ -8,12 +8,12 @@ import '../styles/ticket.css';
 export const Historial_Ventas = () => {
 
     //Obtener nombre del negocio
-    const [businessName, setBusinessName] = useState("POS365");
+    const [businessName, setBusinessName] = useState("pos35X");
 
     useEffect(() => {
         const fetchBusiness = async () => {
             try {
-                const res = await api.get("/pos365/business");
+                const res = await api.get("/pos35X/business");
                 if (res.data[0]?.name_business) {
                     setBusinessName(res.data[0].name_business);
                 }
@@ -39,7 +39,7 @@ export const Historial_Ventas = () => {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const res = await api.get("/pos365/sale");
+            const res = await api.get("/pos35X/sale");
             setItems(res.data);
         } catch (error) {
             console.error("Error al obtener ventas:", error);
@@ -52,7 +52,7 @@ export const Historial_Ventas = () => {
         try {
             setPreview(null);
             setOpenTiket(true);
-            const res = await api.get(`/pos365/sale/${id}`);
+            const res = await api.get(`/pos35X/sale/${id}`);
             setPreview(res.data);
             setSelected(id);
         } catch (error) {

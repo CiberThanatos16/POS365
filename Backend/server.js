@@ -17,10 +17,10 @@ app.use("/uploads", express.static(uploadsPath));
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/pos365", productRoutes);
-app.use("/api/pos365", saleRoutes);
-app.use("/api/pos365", businessRoutes);
-app.use("/api/pos365", resetRoutes);
+app.use("/api/pos35X", productRoutes);
+app.use("/api/pos35X", saleRoutes);
+app.use("/api/pos35X", businessRoutes);
+app.use("/api/pos35X", resetRoutes);
 
 app.get("/", (req, res) => {
   res.send("Servidor OK");

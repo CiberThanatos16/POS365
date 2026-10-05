@@ -36,20 +36,20 @@ export const Reportes = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const todayRes = await api.get("/pos365/sale/day");
+                const todayRes = await api.get("/pos35X/sale/day");
                 setTodaySummary(todayRes.data);
 
-                const monthRes = await api.get("/pos365/sale/month");
+                const monthRes = await api.get("/pos35X/sale/month");
                 setSummary(monthRes.data);
 
-                const historyRes = await api.get("/pos365/sale/history");
+                const historyRes = await api.get("/pos35X/sale/history");
                 console.log("Datos de ventas:", historyRes.data);
                 setSalesDay(historyRes.data);
 
-                const topRes = await api.get("/pos365/sale/top");
+                const topRes = await api.get("/pos35X/sale/top");
                 setTopProducts(topRes.data);
 
-                const typeRes = await api.get("/pos365/sale/type");
+                const typeRes = await api.get("/pos35X/sale/type");
                 setSalesByType(typeRes.data);
 
             } catch (error) {

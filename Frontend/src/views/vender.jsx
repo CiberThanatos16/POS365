@@ -15,7 +15,7 @@ export const Vender = () => {
     useEffect(() => {
         const fetchBusiness = async () => {
             try {
-                const res = await api.get("/pos365/business");
+                const res = await api.get("/pos35X/business");
                 if (res.data[0]?.name_business) {
                     setBusinessName(res.data[0].name_business);
                 }
@@ -62,7 +62,7 @@ export const Vender = () => {
 
     //función para leer los datos
     const fetchData = async () => {
-        const res = await api.get("/pos365");
+        const res = await api.get("/pos35X");
         setItems(res.data);
     };
 
@@ -105,7 +105,7 @@ export const Vender = () => {
             return;
         }
 
-        const res = await api.get(`/pos365/search?name=${searchTerm}`);
+        const res = await api.get(`/pos35X/search?name=${searchTerm}`);
         setItems(res.data);
     };
 
@@ -181,7 +181,7 @@ export const Vender = () => {
         }
 
         try {
-            const res = await api.post("/pos365/sale", {
+            const res = await api.post("/pos35X/sale", {
                 cart,
                 subtotal,
                 iva,
@@ -192,7 +192,7 @@ export const Vender = () => {
             });
 
             if (res.data.saleId) {
-                const resTicket = await api.get(`/pos365/sale/${res.data.saleId}`);
+                const resTicket = await api.get(`/pos35X/sale/${res.data.saleId}`);
                 setPreview(resTicket.data);
                 setOpenTiket(true);
             }

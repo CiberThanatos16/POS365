@@ -48,7 +48,7 @@ export const Admin_Product = () => {
 
     //obtener datos de productos de la base de datos
     const fetchData = async () => {
-        const res = await api.get("/pos365");
+        const res = await api.get("/pos35X");
         setItems(res.data);
     };
 
@@ -67,7 +67,7 @@ export const Admin_Product = () => {
         formData.append("price_sale", price_sale);
         formData.append("price_input", price_input);
 
-        await api.post("/pos365", formData);
+        await api.post("/pos35X", formData);
 
         setImg(null);
         setName("");
@@ -86,7 +86,7 @@ export const Admin_Product = () => {
             return;
         }
 
-        const res = await api.get(`/pos365/search?name=${searchTerm}`);
+        const res = await api.get(`/pos35X/search?name=${searchTerm}`);
         setItems(res.data);
     };
 
@@ -103,7 +103,7 @@ export const Admin_Product = () => {
 
         if (img) formData.append("img", img);
 
-        await api.put(`/pos365/${selected.id}`, formData);
+        await api.put(`/pos35X/${selected.id}`, formData);
 
         setOpenUpdate(false);
         setImg(null);
@@ -116,7 +116,7 @@ export const Admin_Product = () => {
         if (!window.confirm("¿Eliminar este producto?")) return;
 
         try {
-            await api.delete(`/pos365/${id}`);
+            await api.delete(`/pos35X/${id}`);
             fetchData(); // recargar productos
         } catch (error) {
             console.error(error);

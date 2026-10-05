@@ -28,7 +28,7 @@ export const TablaProducts = () => {
     }, []);
 
     const fetchData = async () => {
-        const res = await api.get("/pos365");
+        const res = await api.get("/pos35X");
         setItems(res.data);
     };
 
@@ -45,7 +45,7 @@ export const TablaProducts = () => {
 
         if (img) formData.append("img", img);
 
-        await api.put(`/pos365/${selected.id}`, formData);
+        await api.put(`/pos35X/${selected.id}`, formData);
 
         setOpenUpdate(false);
         setImg(null);
@@ -57,7 +57,7 @@ export const TablaProducts = () => {
         if (!window.confirm("¿Eliminar este producto?")) return;
 
         try {
-            await api.delete(`/pos365/${id}`);
+            await api.delete(`/pos35X/${id}`);
             fetchData(); // recargar productos
         } catch (error) {
             console.error(error);
@@ -76,14 +76,14 @@ export const TablaProducts = () => {
             Balance: Number(item.price_sale) - Number(item.price_input)
         }));
 
-        exportToExcel(dataToExport, "inventario_pos365", "Inventario");
+        exportToExcel(dataToExport, "inventario_pos35X", "Inventario");
     };
 
     const handleUpload = async () => {
         const formData = new FormData();
         formData.append("file", file);
 
-        await api.post("/pos365/import", formData);
+        await api.post("/pos35X/import", formData);
 
         alert("Archivo importado");
     };
